@@ -1,4 +1,3 @@
-#include "vecteur.hpp"
 #include "image.hpp"
 #include "filtreAddition.hpp"
 #include "suiteDeFiltre.hpp"
@@ -7,48 +6,43 @@
 
 int main() {
 
-	/*
-    Vecteur v1, v2(1, 2);
-    v1.affiche();  // Afficher v1
-	v2.affiche();
-    std::cout << "Norme de v2: " << v2.norme() << std::endl;  // Norme de v1
-
-    Vecteur* v3 = v1.addition(v2);  // Additionner v1 et v2
-    v3->affiche();  // Afficher le résultat de l'addition
-    delete v3;  // Libérer la mémoire
-	*/
-	// Charger une image
-	// Charger une image
+	// On crée notre image img à partir du fichier fourni sur moodle
     Image img("cairo.pgm");
-    // Tester le constructeur par copie
+
+    // Test du constructeur par copie
     Image imgCopy = img;
 
-    // Obtenir les dimensions de l'image
+    // On obtient les dimensions de l'image
+	//Largeur
     size_t width = img.get_w();
+
+	//Hauteur
     size_t height = img.get_h();
+
     std::cout << "Dimensions de l'image : " << width << " x " << height << std::endl;
 
-    // Modifier quelques pixels
-    for (size_t i = height/2-50; i < height/2+50; ++i) {
-        for (size_t j = width/2-50; j < width/2+50; ++j) {
-            img.set(i, j, 159); // Définir en blanc
-        }
-    }
-
-    // Obtenir la valeur d'un pixel spécifique
+	// On affiche la valeur d'un pixel 
     unsigned char pixelValue = img.get(5, 5);
     std::cout << "Valeur du pixel (5,5) : " << static_cast<int>(pixelValue) << std::endl;
+
+    // On modifie un carré de pixels afin de voir clairement si notre modification marche correctement
+    for (size_t i = height/2-50; i < height/2+50; ++i) {
+        for (size_t j = width/2-50; j < width/2+50; ++j) {
+            img.set(i, j, 159); //On set la couleur à 159 sur 255 arbitrairement 
+    }
+    
 
     // Sauvegarder l'image modifiée
     img.write("cairo2.pgm");
 
     std::cout << "L'image a été modifiée et enregistrée avec succès." << std::endl;
 
-	// Appliquer le filtre Addition
-    FiltreAddition filtre(90);  // Créer un filtre qui ajoute 30 à chaque pixel
-    Image imgFiltree = imgCopy;     // Créer une copie de l'image pour appliquer le filtre
-    filtre.apply(imgFiltree);   // Appliquer le filtre
+	// Application du filtre Addition
+    FiltreAddition filtre(90);  // On crée un filtre qui ajoute 30 à chaque pixel
+    Image imgFiltree = imgCopy;     // On crée  une copie de l'image pour appliquer le filtre
+    filtre.apply(imgFiltree);   // Application le filtre
 
+	//Nous affichons la valeur du même pixel que précédement afin de comparer et savoir si notre filtre à agit correctement
 	pixelValue = imgFiltree.get(5, 5);
 	std::cout << "Valeur du pixel après filtrage (5,5) : " << static_cast<int>(pixelValue) << std::endl;
 

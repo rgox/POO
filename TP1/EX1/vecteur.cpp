@@ -4,7 +4,7 @@
 
 // Afficher les coordonnées
 void Vecteur::affiche() const {
-    std::cout << "(" << x << "," << y << ")" << std::endl;
+    std::cout << "(" << x << "," << y << ")\n" << std::endl;
 }
 
 // Calculer la norme
