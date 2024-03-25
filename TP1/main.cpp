@@ -18,10 +18,8 @@ int main() {
     delete v3;  // Libérer la mémoire
 	*/
 	// Charger une image
-
 	// Charger une image
     Image img("cairo.pgm");
-
     // Tester le constructeur par copie
     Image imgCopy = img;
 
