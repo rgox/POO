@@ -10,8 +10,8 @@ void SuiteDeFiltre::add(Filtre* f) {
 
 //Parcours le vecteur de filtre et utilise leur propre méthode apply pour l'appliquer sur l'image
 void SuiteDeFiltre::apply(Image& i) const {
-    for (Filtre* f : filtres) {
-        if (f) {
+    for (Filtre* f : filtres) {//On parcours le vecteur de pointeurs vers des filtres
+        if (f) { //Si le filtre n'est pas nul, on l'applique
             f->apply(i);
         }
     }
