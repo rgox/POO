@@ -3,9 +3,9 @@
 FiltreMoyenne::FiltreMoyenne(int taille) : Filtre("Moyenne"), taille(taille) {}
 
 void FiltreMoyenne::apply(Image& i) const {
-    Image imgCopy = i; // Faire une copie de l'image originale pour référence
+    Image imgCopy = i; // Faire une copie de l'image originale pour le calcul de toute les moyennes
 
-    for (size_t y = 0; y < i.get_w(); ++y) {
+    for (size_t y = 0; y < i.get_w(); ++y) { //on parcours tout les pixels de l'image 
         for (size_t x = 0; x < i.get_h(); ++x) {
             int somme = 0;
             int count = 0;
@@ -24,7 +24,7 @@ void FiltreMoyenne::apply(Image& i) const {
                 }
             }
 
-            // Définir la nouvelle valeur du pixel
+            // nouvelle valeur du pixel
             if (count != 0) {
                 i.set(x, y, static_cast<unsigned char>(somme / count));
             }

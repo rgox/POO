@@ -1,9 +1,8 @@
-// FiltreMoyenne.hpp
 #ifndef FILTREMOYENNE_HPP
 #define FILTREMOYENNE_HPP
 
 #include "filtre.hpp"
-#include "image.hpp" // Assurez-vous que ce fichier existe et est correctement implémenté.
+#include "image.hpp" 
 
 class FiltreMoyenne : public Filtre {
 private:

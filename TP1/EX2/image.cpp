@@ -10,7 +10,7 @@
 
 //Allocaion de la mémoire
 void Image::allocateData() {
-	// On alloue une zone de memoire de taille w*h pour stocker les pixels de l'image postérieurement
+	// On alloue une zone de memoire de taille w*h pour stocker les pixels de l'image
     data = new unsigned char[w * h];
 }
 

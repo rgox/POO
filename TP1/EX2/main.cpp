@@ -29,7 +29,8 @@ int main() {
     for (size_t i = height/2-50; i < height/2+50; ++i) {
         for (size_t j = width/2-50; j < width/2+50; ++j) {
             img.set(i, j, 159); //On set la couleur à 159 sur 255 arbitrairement 
-    }
+    	}	
+	}
     
 
     // Sauvegarder l'image modifiée
@@ -82,10 +83,5 @@ int main() {
 
     std::cout << "L'image après application de la suite de filtres a été enregistrée avec succès." << std::endl;
 
-
-
-
-/*TEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEESSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSTTTTTTTTTTTTTTTTTTTTTT*/
-    // Le destructeur sera appelé automatiquement
     return 0;
 }
